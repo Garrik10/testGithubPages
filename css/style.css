@@ -1,0 +1,593 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+@keyframes slideup {
+  from {
+    transform: translatey(20px);
+    opacity: 0%;
+  }
+  to {
+    transform: translatey(0px);
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+    visibility: hidden;
+  }
+}
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.favoriteIcon {
+  cursor: pointer;
+  opacity: 0%;
+  background: linear-gradient(162deg, #ff79da 0%, #9356dc 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  grid-area: 1/2;
+  transition: opacity 0.3s ease-in-out;
+  position: relative;
+  font-size: 30px;
+}
+.favoriteIcon:hover {
+  opacity: 100%;
+}
+.favoriteIcon:hover ~ .addFavoriteIcon {
+  color: #9356dc;
+}
+
+.restaurantInfo .addFavoriteIcon, .restaurantInfo .favoriteIcon{
+  align-self: start;
+}
+
+
+.addFavoriteIcon {
+  cursor: pointer;
+  grid-area: 1/2;
+  transition: color 0.2s ease-in-out;
+  color: black;
+  font-size: 30px;
+}
+
+.img {
+  height: 150px;
+  animation: spin 2.5s linear infinite;
+  color: #ff79da;
+}
+
+/* #fonctionnement{
+  background-color: rgba(153, 226, 208, .1 );
+} */
+
+html {
+  font-size: 62.5%;
+  line-height: 1.3;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  margin: 0 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* HEADER */
+
+.header {
+  background: white;
+  z-index: 2;
+  font-family: "Shrikhand", cursive;
+  font-size: 40px;
+  height: 95px;
+  box-shadow: rgb(149 157 165 / 18%) 0px 3px 2px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.header .backLink {
+  margin-left: 32px;
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.header.img{
+  height:30px;
+  width:173px;
+}
+
+.header .headerLogo {
+  margin: auto;
+  height: 45px;
+}
+
+/* END HEADER */
+
+
+#location h2, #location i {
+  color:#353535
+}
+
+main {
+  position: relative;
+}
+
+.explorer {
+  color: white;
+  padding: 25px 50px;
+  text-align: center;
+  background: #ff79da;
+  background: linear-gradient(162deg, #ff79da 0%, #9356dc 100%);
+  width: min-content;
+  white-space: nowrap;
+  margin: 45px auto;
+  border-radius: 40px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.explorer:hover {
+  filter: brightness(1.1);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+
+footer {
+  background: #353535;
+  color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footerTitle {
+  font-family: "Shrikhand", cursive;
+  margin: 15px 0px;
+}
+
+footer .footerLink {
+  margin: 0.5rem 0rem;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+footer .material-icons.footerIcon {
+  font-size: 25px;
+}
+
+.item {
+  background: whitesmoke;
+  padding: 50px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item .explorerTitre {
+  font-size: 40px;
+  padding: 30px;
+}
+
+.item .explorerTexte {
+  font-size: 28px;
+  font-weight: 200;
+}
+
+.animation {
+  background: white;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeout 0.2s 3s forwards;
+}
+
+.spinnerBig {
+  position: absolute;
+  width: 17rem;
+  height: 17rem;
+  border-radius: 50%;
+  border: 48px solid rgba(161, 160, 160, 0);
+  border-top: 48px solid #9356dc;
+  border-left: 48px solid #9356dc;
+  border-bottom: 48px solid #9356dc;
+  animation: spin 2.5s linear infinite;
+}
+
+.spinner {
+  border: 32px solid rgba(161, 160, 160, 0);
+  border-top: 32px solid #ff79da;
+  border-right: 32px solid #ff79da;
+  border-bottom: 32px solid #ff79da;
+  width: 160PX;
+  height: 160PX;
+  border-radius: 50%;
+  opacity: 1;
+  animation: spinner 0.8s 0.2s 5;
+  position: absolute;
+}
+
+.ctn {
+  padding: 3rem 23px;
+}
+
+.ctn .sectionTitle {
+  margin-bottom: 32px;
+}
+
+.locationItem {
+  gap: 20px;
+  padding: 20px;
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resto_card img{
+  height: 180px;
+}
+
+.fonctionnement_ctn {
+  display: grid;
+}
+
+.gridList{
+  display: grid;
+  row-gap: 30px;
+}
+
+.fonctionnementCard {
+  background: #f6f6f6;
+  padding: 40px;
+  box-shadow: rgba(50, 50, 93, 0) 0px 5px 20px 0px, rgba(0, 0, 0, 0.3) -1px 5px 30px -10px;
+  border-radius: 32px;
+  margin: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.fonctionnementCard.purpleCard {
+  background: #f5edff;
+}
+
+.fonctionnementCard .orderNumber {
+  background: #9356dc;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: absolute;
+  left: -25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orderNumber p{
+  font-size: 125%;
+}
+
+.fonctionnementCard .orderIcon {
+  color: #7e7e7e;
+  font-size: 25px;
+}
+
+.fonctionnementCard .purpleIcon {
+  color: #9356dc;
+}
+
+.restaurantSection {
+  background: #f6f6f6;
+}
+
+.restaurantLocation{
+  font-size: 23px;
+  font-weight: 300;
+}
+
+.resto_card {
+  width: 100%;
+  min-width: 2.48px;
+  border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
+  position: relative;
+  transition: filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.resto_card:hover {
+  filter: brightness(1.1);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.resto_card .resto_img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.restaurantInfo {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.resto_card .restaurantName {
+  font-weight: 600;
+  margin-bottom: 7px;
+  font-size: 25px;
+}
+
+.nouveau {
+  background: #a9e0d1;
+  color: #3b8468;
+  font-weight: 500;
+  padding: 0.7rem 25px;
+  border-radius: 0.48px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.menuRestaurantImage {
+  object-fit: cover;
+  width: 100%;
+  max-height: 30rem;
+}
+
+.menuWrapper {
+  border-radius: 4rem 4rem 0 0;
+  background: whitesmoke;
+  padding: 20px;
+  position: relative;
+  margin-top: -4rem;
+}
+
+.menuHeader {
+  margin-top: 32px;
+  margin-bottom: 4rem;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuRestaurantTitle {
+  font-family: "Shrikhand", cursive;
+  font-size: 35px;
+}
+
+.menu {
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.menuSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.menuMainTitle {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: relative;
+}
+
+.menuMainTitle::after {
+  content: "";
+  width: 5rem;
+  height: 0.5rem;
+  background-color: #99e2d0;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+}
+
+.cardMenu {
+  background: white;
+  height: 7rem;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  animation: slideup 1s forwards;
+  opacity: 0;
+}
+
+.menuTitle{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.cardMenu .menuInfo {
+  padding: 10px;
+  max-width: 100%;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cardMenu .menuInfo .menuText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cardMenu .menuInfo .menuText .menuDetails {
+  overflow: hidden;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+.cardMenu .menuInfo .menuPrice {
+  font-weight: 600;
+  display: flex;
+  align-items: flex-end;
+}
+
+.cardMenu .menuIcon {
+  background: #99e2d0;
+  cursor: pointer;
+  height: auto;
+  width: 0;
+  opacity: 0;
+  border-radius: 0 15px 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease-in-out, width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.cardMenu .menuIcon .checkIcon {
+  font-size: 30px;
+  color: white;
+  transition: 0.4s ease-in-out;
+}
+
+.cardMenu:hover .menuIcon {
+  opacity: 100%;
+  width: 7rem;
+}
+
+.cardMenu:hover .checkIcon {
+  transform: rotate(0deg);
+}
+
+.commanderButton {
+  color: white;
+  padding: 1.5rem 3rem;
+  text-align: center;
+  background: linear-gradient(162deg, #ff79da 0%, #9356dc 100%);
+  width: 190px;
+  margin: 4rem auto;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.commanderButton:hover {
+  filter: brightness(1.1);
+}
+
+@media (min-width: 650px) {
+  .gridList {
+    grid-template-columns: 50% auto;
+    column-gap: 32px;
+  }
+  .fonctionnement_ctn{
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  }
+
+  footer nav{
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-around;
+  }
+
+  .footerTitle{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+
+  .homeSsection {
+    padding: 6rem 4rem;
+  }
+
+  .item {
+    height: 500px;
+    background: none;
+    color: white;
+    position: relative;
+    background: rgba(60, 52, 86, .3);
+  }
+
+  .item::after {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -1;
+    position: absolute;
+    background: url("../img/bg.jpg") center/415px;
+  }
+
+  .menuRestaurantTitle {
+    font-size: 3.5rem;
+  }
+
+  .menuHeader {
+    justify-content: center;
+  }
+
+  .menuWrapper {
+    border-radius: 0;
+  }
+
+  .menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .menu {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .gridList{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
